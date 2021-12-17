@@ -1,45 +1,24 @@
 package exercise6;
-
 import java.util.Scanner;
-
 public class Palindrome {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int  number = input.nextInt();
-        int number1 = number;
-        int first = number;
-        int counter = 0;
-        while(number != 0){
-        number = number / 10;
-        counter++;
+
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
+
+        int reversedNumber = 0;
+        int manipulatedNumber = number;
+
+        while (manipulatedNumber > 0) {
+          int nextDigit = manipulatedNumber % 10;
+          reversedNumber = reversedNumber * 10 + nextDigit;
+          manipulatedNumber = manipulatedNumber / 10;
+
         }
-    
-     
-    int arr [] = new int [counter];
-    for (int i  = 0;i < counter ;i++){
-      arr[i] = number1 % 10;
-      number1 = number1 / 10;
-    
+
+        boolean palindrome = number == reversedNumber;
+        System.out.print("Palindrome: " + palindrome);
+
     }
-    int last = 0;
-    for (int i  = 0;i < counter;i++) {
-    last = last * 10;
-    last = last + arr[i];
-    }
-if (last == first ) {
-    System.out.println("Palindrom true");
-} else {
-    System.out.println("Palindrom: false");
 }
-    }
-    }
-
-
- 
-
-
-
-
-
-  
-
